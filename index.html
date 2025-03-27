@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rigden | Mountain Inspired Living</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Poppins:wght@200;300;400&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #fbfbfb;
+            color: #333;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+        
+        a:hover {
+            color: #8b786d;
+        }
+        
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Elegant header */
+        header {
+            padding: 2rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            padding: 2rem 4rem;
+        }
+        
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: #fff;
+        }
+        
+        nav {
+            display: flex;
+            gap: 2.5rem;
+        }
+        
+        nav a {
+            font-size: 0.9rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            color: #fff;
+            position: relative;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: #fff;
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero section */
+        .hero {
+            height: 100vh;
+            background-image: url('https://i.pinimg.com/736x/4b/ae/13/4bae13a108c649f3bf24f678546fd129.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 100%);
+        }
+        
+        .hero-content {
+            position: relative;
+            text-align: center;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+        
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            font-weight: 200;
+            letter-spacing: 1px;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2.5rem;
+            border: 1px solid #fff;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            font-weight: 300;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+        
+        /* Collection section */
+        .collection {
+            padding: 8rem 0;
+        }
+        
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 4rem;
+            letter-spacing: 2px;
+        }
+        
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+        
+        .product {
+            position: relative;
+        }
+        
+        .product-img {
+            width: 100%;
+            height: 55vh;
+            object-fit: cover;
+            transition: filter 0.5s ease;
+        }
+        
+        .product:hover .product-img {
+            filter: brightness(0.95);
+        }
+        
+        .product-info {
+            margin-top: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        
+        .product-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 400;
+        }
+        
+        .product-subtitle {
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 0.3rem;
+        }
+        
+        .product-price {
+            font-size: 1rem;
+            color: #5c5c5c;
+        }
+        
+        /* About section */
+        .about {
+            padding: 6rem 0;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .about p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 4rem 0;
+            background-color: #222;
+            color: #fff;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #fff;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 3rem;
+            color: #777;
+            font-size: 0.85rem;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header {
+                padding: 1.5rem 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .products {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+            
+            .product-img {
+                height: 45vh;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            
+            nav {
+                gap: 1.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">RIGDEN</div>
+        <nav>
+            <a href="#collection">Collection</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Serenity in Simplicity</h1>
+            <p>Objects inspired by the quiet elegance of mountainous landscapes, designed to bring tranquility into your everyday spaces.</p>
+            <a href="#collection" class="btn">EXPLORE</a>
+        </div>
+    </section>
+    
+    <section class="collection" id="collection">
+        <div class="container">
+            <h2 class="section-title">Our Collection</h2>
+            <div class="products">
+                <div class="product">
+                    <img src="https://i.pinimg.com/736x/04/11/03/0411034596420ee22aef87a6d1ed5ad3.jpg" alt="Mountain View" class="product-img">
+                    <div class="product-info">
+                        <div>
+                            <h3 class="product-title">Alpine Horizon</h3>
+                            <p class="product-subtitle">Limited Edition Print</p>
+                        </div>
+                        <p class="product-price">$185</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <img src="https://i.pinimg.com/736x/4b/ae/13/4bae13a108c649f3bf24f678546fd129.jpg" alt="Mountain View" class="product-img">
+                    <div class="product-info">
+                        <div>
+                            <h3 class="product-title">Distant Peaks</h3>
+                            <p class="product-subtitle">Framed Canvas</p>
+                        </div>
+                        <p class="product-price">$220</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <img src="/api/placeholder/800/1100" alt="Mountain View" class="product-img">
+                    <div class="product-info">
+                        <div>
+                            <h3 class="product-title">Mountain Shadow</h3>
+                            <p class="product-subtitle">Wall Sculpture</p>
+                        </div>
+                        <p class="product-price">$240</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">Our Philosophy</h2>
+            <div class="about-content">
+                <p>At Rigden, we believe in the transformative power of mountain landscapes. Every piece in our collection is designed to capture the essence of the majestic Himalayas — their timeless beauty, calming presence, and profound simplicity.</p>
+                <p>Each product is crafted with sustainable materials and ethical practices, honoring both the natural world that inspires us and the artisans who bring our vision to life.</p>
+            </div>
+        </div>
+    </section>
+    
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3 class="footer-title">Contact</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:hello@rigden.store">hello@rigden.store</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Pinterest</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">Shop</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">All Products</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Featured</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">Information</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Rigden. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
